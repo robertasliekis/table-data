@@ -27,6 +27,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    //For pagination piece of data is sliced from all data, depending which page is active
     loadedData &&
       setPerPageData(
         loadedData.slice(
@@ -63,6 +64,7 @@ function App() {
       } else return a[columnName].localeCompare(b[columnName]);
     });
 
+    //If same column header was pressed twice in a row sorting order will be reversed
     if (columnName === reverseColumn) {
       dataCopy.reverse();
       setReverseColumn(null);
